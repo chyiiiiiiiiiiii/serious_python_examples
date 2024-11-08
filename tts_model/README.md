@@ -1,58 +1,73 @@
-# TTS Model Example
+# TTS Model with Serious Python for Flutter
 
-This example can not run well because of Whisper TTS model. So if you have any ideas, please let me know.
+This project demonstrates how to integrate the `serious_python` package into a Flutter application to handle text-to-speech (TTS) functionalities using Python scripts.
 
----
+## Table of Contents
 
-Before running the app, run the following command to package the Python app into an asset.
-Generate **app.zip** file
+- [TTS Model with Serious Python for Flutter](#tts-model-with-serious-python-for-flutter)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Features](#features)
+  - [Installation](#installation)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+  - [Contributing](#contributing)
+  - [License](#license)
 
-> ℹ️ **Important Reminder**: If you are using `serious_python: ^0.8.1`, ensure you use the command for macOS and not the iOS version, otherwise it will not work.
+## Introduction
 
-For Android:
+This project leverages the `serious_python` package to execute Python scripts within a Flutter application. It is designed to showcase how Python's powerful libraries can be utilized in a mobile app environment, specifically for text-to-speech operations.
 
-```
-export SERIOUS_PYTHON_SITE_PACKAGES=$(pwd)/build/site-packages
-dart run serious_python:main package app/src -p Android --requirements -r,app/src/requirements.txt
-```
+## Features
 
-For iOS, macOS testing: Use **-p Darwin**
+- **Cross-Platform**: Works on both Android and iOS.
+- **Python Integration**: Seamlessly run Python scripts from within Flutter.
+- **Text-to-Speech**: Convert text to speech using Python's TTS capabilities.
 
-```
-dart run serious_python:main package app/src -p Darwin --requirements -r,app/src/requirements.txt
-```
+## Installation
 
-For Windows:
+### Prerequisites
 
-```
-dart run serious_python:main package app/src -p Windows --requirements -r,app/src/requirements.txt
-```
+- Flutter SDK: [Install Flutter](https://flutter.dev/docs/get-started/install)
+- Dart: Included with Flutter
+- Python: Ensure Python is installed on your system
+- `serious_python` package: Version ^0.8.1
 
-For Linux:
+### Setup
 
-```
-dart run serious_python:main package app/src -p Linux --requirements -r,app/src/requirements.txt
-```
+1. **Clone the repository:**
 
-For Android:
+   ```bash
+   git clone https://github.com/yourusername/tts_model_flutter.git
+   cd tts_model_flutter
+   ```
 
-In `android/app/build.gradle`:
+2. **Install Flutter dependencies:**
 
-```
-android {
-    ndkVersion "25.1.8937393"
+   ```bash
+   flutter pub get
+   ```
 
-    packagingOptions {
-        jniLibs {
-            useLegacyPackaging true
-        }
-    }
+3. **Package the Python app:**
 
-    packagingOptions {
-        doNotStrip "*/arm64-v8a/libpython*.so"
-        doNotStrip "*/armeabi-v7a/libpython*.so"
-        doNotStrip "*/x86/libpython*.so"
-        doNotStrip "*/x86_64/libpython*.so"
-    }
-}
-```
+   > ℹ️ **Important Reminder**: If you are using `serious_python: ^0.8.1`, ensure you use the command for macOS and not the iOS version, otherwise it will not work.
+
+   For iOS, macOS:
+
+   ```bash
+   dart run serious_python:main package app/src -p Darwin --requirements -r,app/src/requirements.txt
+   ```
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request for any improvements or bug fixes.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/YourFeature`)
+3. Commit your changes (`git commit -m 'Add some feature'`)
+4. Push to the branch (`git push origin feature/YourFeature`)
+5. Open a pull request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
